@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FamilyDining🍽️🍽️</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="icon" type="image/png" href="../image/logo_1.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+    <style>
+      /* 전체화면 영상 */
+      .fullscreen-video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .fullscreen-video-wrapper iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 56.25vw;
+        min-height: 100vh;
+        min-width: 177.77vh;
+        transform: translate(-50%, -50%);
+        filter: grayscale(100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* 영상 위 콘텐츠 */
+      .video-content-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      .best-slider-container,
+      .quick-links {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin: 1rem auto;
+      }
+
+      .quick-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .quick-link {
+        color: white;
+        background-color: crimson;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quick-link:hover {
+        background-color: darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 메인 슬라이드 (기존 슬라이드 아래로 이동) -->
+    <div class="slider-container">
+      <div class="slides">
+        <div class="slide"><img src="../image/페이지1.png" alt="1" /></div>
+        <div class="slide"><img src="../image/페이지3.png" alt="2" /></div>
+        <div class="slide"><img src="../image/페이지4.png" alt="3" /></div>
+      </div>
+      <div class="controls">
+        <button id="prev">〈</button>
+        <button id="next">〉</button>
+      </div>
+      <div class="dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+
+    <!-- 전체 배경 영상 -->
+    <div class="fullscreen-video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/cAPzG3rrqbQ?autoplay=1&mute=1&loop=1&playlist=cAPzG3rrqbQ&controls=0&showinfo=0&modestbranding=1"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+
+      <div class="video-content-overlay">
+        <!-- BEST 메뉴 -->
+        <div class="menu-detail">
+          <h2>BEST MENU</h2>
+          <div class="best-slider-container">
+            <div class="best-slider">
+              <a href="menu-steak.html" class="best-card">
+                <img src="../image/갈릭립아이.jpg" alt="스테이크" />
+                <div class="best-info">
+                  <h3>갈릭립아이 스테이크</h3>
+                  <p>육즙 가득한 정통 스테이크</p>
+                  <span class="price">₩30,000</span>
+                </div>
+              </a>
+              <a href="menu-pasta.html" class="best-card">
+                <img src="../image/로제투움바파스타.png" alt="파스타" />
+                <div class="best-info">
+                  <h3>로제 투움바 파스타</h3>
+                  <p>매콤한 로제 크림 파스타</p>
+                  <span class="price">₩27,000</span>
+                </div>
+              </a>
+              <a href="menu-salad.html" class="best-card">
+                <img src="../image/치킨텐더셀러드.jpg" alt="샐러드" />
+                <div class="best-info">
+                  <h3>치킨텐더 샐러드</h3>
+                  <p>신선한 채소와 바삭한 텐더</p>
+                  <span class="price">₩15,000</span>
+                </div>
+              </a>
+              <a href="menu-dessert.html" class="best-card">
+                <img src="../image/머스탱케잌.jpg" alt="디저트" />
+                <div class="best-info">
+                  <h3>머스탱 청포도 케이크</h3>
+                  <p>상큼한 청포도 풍미 가득</p>
+                  <span class="price">₩5,000</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 예약/배달 바로가기 버튼 -->
+        <div class="quick-links">
+          <a href="reserve.html" class="quick-link reserve">
+            <strong>RESERVE</strong><p>예약하기</p>
+          </a>
+          <a href="delivery.html" class="quick-link delivery">
+            <strong>DELIVERY</strong><p>주문하기</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/index.js"></script>
+  </body>
+</html>

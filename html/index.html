@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FamilyDining🍽️🍽️</title>
+    <title>Bistro-Dining</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/index.css" />
     <link rel="icon" type="image/png" href="../image/logo_1.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
@@ -22,28 +22,99 @@
   <body>
     <nav>
       <div class="nav-container">
+        <!-- logo -->
         <div class="navbar-logo">
           <a href="main.html">
             <img src="../image/logo_2.png" alt="STORE Logo" />
           </a>
         </div>
-        <div class="navbar-menu">
-          <a href="#">BRAND</a>
-          <a href="#">MENU</a>
-          <a href="#">EVENT</a>
-          <a href="#">STORE</a>
-          <a href="#" style="color: red">DELIVERY</a>
-        </div>
 
+        <!-- navrbar -->
+        <div class="navbar-menu">
+          <div class="dropdown">
+            <a href="#">BRAND</a>
+            <div class="dropdown-content">
+              <a href="#">브랜드 소개</a>
+              <a href="#">브랜드 역사</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">MENU</a>
+            <div class="dropdown-content">
+              <a href="#">스테이크</a>
+              <a href="#">파스타</a>
+              <a href="#">셀러드</a>
+              <a href="#">디저트</a>
+            </div>
+          </div>
+          <div class="dropdown"><a href="#">EVENT</a></div>
+          <div class="dropdown"><a href="#">STORE</a></div>
+          <div class="dropdown">
+            <a href="#" style="color: #dd4124">DELIVERY</a>
+          </div>
+        </div>
         <div class="navbar-right">
           <a href="#">고객의 소리</a>
           <a href="#">채용</a>
-          <a href="index.html">로그인</a>
+          <a href="login.html">로그인</a>
           <a href="#" class="signup">회원가입</a>
         </div>
       </div>
     </nav>
-
+    <div class="fullscreen-video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/cAPzG3rrqbQ?autoplay=1&mute=1&loop=1&playlist=cAPzG3rrqbQ&controls=0&showinfo=0&modestbranding=1"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- BEST MENU 슬라이더 -->
+    <div class="menu-detail">
+      <h2>BEST MENU</h2>
+      <div class="best-menu-wrapper">
+        <button class="best-prev">〈</button>
+        <div class="best-slider-container">
+          <div class="best-slider">
+            <!-- 각 BEST 메뉴 카드 -->
+            <a href="menu-steak.html" class="best-card">
+              <img src="../image/갈릭립아이.jpg" alt="스테이크" />
+              <div class="best-info">
+                <h3>갈릭립아이 스테이크</h3>
+                <p>육즙 가득한 정통 스테이크</p>
+                <span class="price">₩30,000</span>
+              </div>
+            </a>
+            <a href="menu-pasta.html" class="best-card">
+              <img src="../image/로제투움바파스타.png" alt="파스타" />
+              <div class="best-info">
+                <h3>로제 투움바 파스타</h3>
+                <p>매콤한 로제 크림 파스타</p>
+                <span class="price">₩27,000</span>
+              </div>
+            </a>
+            <a href="menu-salad.html" class="best-card">
+              <img src="../image/치킨텐더셀러드.jpg" alt="샐러드" />
+              <div class="best-info">
+                <h3>치킨텐더 샐러드</h3>
+                <p>신선한 채소와 바삭한 텐더</p>
+                <span class="price">₩15,000</span>
+              </div>
+            </a>
+            <a href="menu-dessert.html" class="best-card">
+              <img src="../image/머스탱케잌.jpg" alt="디저트" />
+              <div class="best-info">
+                <h3>머스탱 청포도 케이크</h3>
+                <p>상큼한 청포도 풍미 가득</p>
+                <span class="price">₩5,000</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <button class="best-next">〉</button>
+      </div>
+    </div>
     <!-- 슬라이더 -->
     <div class="slider-container">
       <div class="slides">
@@ -69,18 +140,92 @@
         <span class="dot" data-index="2"></span>
       </div>
     </div>
+    <!-- 하단 바로가기 버튼 -->
+    <div class="quick-links">
+      <p></p>
+      <a href="reserve.html" class="quick-link reserve">
+        <strong>RESERVE</strong>
+        <p>예약하기</p>
+      </a>
 
-    <!-- 하단 메뉴 정보 -->
-    <div class="menu-detail">
-      <h2>🍽️ 인기 메뉴 소개</h2>
-      <div class="menu-grid">
-        <div class="menu-item">스테이크</div>
-        <div class="menu-item">파스타</div>
-        <div class="menu-item">샐러드</div>
-        <div class="menu-item">디저트</div>
-      </div>
+      <a href="delivery.html" class="quick-link delivery">
+        <strong>DELIVERY</strong>
+        <p>주문하기</p>
+      </a>
     </div>
+    <div footer></div>
 
-    <script src="../js/패밀리레스토랑.js"></script>
+    <!-- 푸터 영역 -->
+    <footer class="site-footer">
+      <div class="footer-upper">
+        <img src="../image/logo_2.png" alt="로고" class="footer-logo" />
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>DELIVERY</h4>
+            <ul>
+              <li><a href="#">추천메뉴</a></li>
+              <li><a href="#">스테이크</a></li>
+              <li><a href="#">파스타</a></li>
+              <li><a href="#">샐러드</a></li>
+              <li><a href="#">디저트</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>STORE</h4>
+            <ul>
+              <li><a href="#">매장찾기</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>EVENT</h4>
+            <ul>
+              <li><a href="#">프로모션</a></li>
+              <li><a href="#">새소식</a></li>
+              <li><a href="#">공지사항</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>SERVICE</h4>
+            <ul>
+              <li><a href="#">고객센터</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>INFORMATION</h4>
+            <ul>
+              <li><a href="#">브랜드</a></li>
+              <li><a href="#">IR</a></li>
+              <li><a href="#">NEWS</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">사이트 이용약관</a>
+          <a href="#">영상정보처리기기 운영방침</a>
+        </div>
+        <div class="footer-info">
+          서울 강남구 도산대로 442 3층 / 대표: 아리야마 사토시 / 사업자등록번호:
+          123-45-67890<br />
+          대표전화: 1661-0000 (평일 09:00~18:00) / 고객센터:
+          help@familydining.co.kr
+        </div>
+        <div class="footer-copy">
+          &copy; 2025 FamilyDining Co., Ltd. All rights reserved.
+        </div>
+      </div>
+
+      <button
+        class="top-btn"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        TOP
+      </button>
+    </footer>
+
+    <script src="../js/index.js"></script>
   </body>
 </html>
