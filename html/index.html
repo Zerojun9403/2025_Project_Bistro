@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인페이지</title>
+    <title>FamilyDining🍽️🍽️</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/패밀리레스토랑.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="icon" type="image/png" href="../image/logo_1.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav>
       <div class="nav-container">
         <div class="navbar-logo">
-          <a href="패밀리레스토랑.html">
+          <a href="main.html">
             <img src="../image/logo_2.png" alt="STORE Logo" />
           </a>
         </div>
@@ -32,47 +38,49 @@
         <div class="navbar-right">
           <a href="#">고객의 소리</a>
           <a href="#">채용</a>
-          <a href="#">로그인</a>
+          <a href="index.html">로그인</a>
           <a href="#" class="signup">회원가입</a>
         </div>
       </div>
     </nav>
 
-    <div class="container">
-      <h1>로그인</h1>
-      <div class="login-form">
-        <div class="form-group">
-          <label>
-            아이디:
-            <input
-              type="text"
-              id="username"
-              placeholder="아이디를 입력하세요"
-            />
-          </label>
+    <!-- 슬라이더 -->
+    <div class="slider-container">
+      <div class="slides">
+        <div class="slide">
+          <img src="../image/페이지1.png" alt="1" />
+        </div>
+        <div class="slide">
+          <img src="../image/페이지3.png" alt="2" />
+        </div>
+        <div class="slide">
+          <img src="../image/페이지4.png" alt="3" />
         </div>
       </div>
-      <div class="login-form">
-        <div class="form-group">
-          <label>
-            비밀번호:
-            <input
-              type="password"
-              id="password"
-              placeholder="비밀번호를 입력하세요"
-            />
-          </label>
-        </div>
-        <button id="loginBtn">로그인</button>
-        <button id="logoutBtn" style="display: none">로그아웃</button>
 
-        <div id="loginResult" class="result"></div>
-        <div class="welcom-text">
-          <p>테스트 계정 : admin/1234</p>
-          <p>user 계정 : user/1234</p>
-        </div>
+      <div class="controls">
+        <button id="prev">〈</button>
+        <button id="next">〉</button>
+      </div>
+
+      <div class="dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
     </div>
-    <script src="../js/index.js"></script>
+
+    <!-- 하단 메뉴 정보 -->
+    <div class="menu-detail">
+      <h2>🍽️ 인기 메뉴 소개</h2>
+      <div class="menu-grid">
+        <div class="menu-item">스테이크</div>
+        <div class="menu-item">파스타</div>
+        <div class="menu-item">샐러드</div>
+        <div class="menu-item">디저트</div>
+      </div>
+    </div>
+
+    <script src="../js/패밀리레스토랑.js"></script>
   </body>
 </html>
