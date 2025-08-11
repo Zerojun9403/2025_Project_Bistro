@@ -31,12 +31,21 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-/* 캡션: 이미지 '하단'에 노출 (요구사항대로 이미지 아래쪽) */
+.store-info-title {
+  text-align: center;
+  font-size: 4rem;
+  margin: 40px 0 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #5c5c5c;
+}
+
+/* 캡션: 이미지 '하단'에 노출  */
 .hero-caption {
   margin-top: 12px;
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #5c5c5c;
   text-align: center;
 }
 /* 전체 래퍼: 가운데 정렬 + 가로 배치 */
@@ -64,7 +73,7 @@ body {
 
 /* 우측 안내 컬럼: 고정폭 느낌 */
 .info-col {
-  color: #333;
+  color: #5c5c5c;
   flex: 0 0 360px;
   display: flex;
   flex-direction: column;
@@ -82,17 +91,21 @@ body {
 
 /* 타이틀 간격 정돈(선택) */
 .info-col h1 {
+  color: #5c5c5c;
   font-size: 2rem;
   margin: 0 0 8px;
 }
 
 .info-col p {
+  color: #5c5c5c;
   font-size: 1rem;
   padding: 16px;
   margin: 2 0 0px;
 }
 .info-col h3 {
+  color: #5c5c5c;
   margin: 8px 0;
+  text-align: center;
 }
 
 /* 반응형: 좁은 화면에서는 위아래로 쌓기 */
