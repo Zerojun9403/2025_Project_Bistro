@@ -39,3 +39,70 @@ body {
   color: #333;
   text-align: center;
 }
+/* 전체 래퍼: 가운데 정렬 + 가로 배치 */
+.store-wrap {
+  max-width: 1200px; /* 가운데 정렬 폭 제한 */
+  margin: 40px auto; /* 화면 가운데 */
+  padding: 0 16px;
+  display: flex; /* 가로 배치 */
+  gap: 24px; /* 지도-안내 사이 간격 */
+  justify-content: center; /* 가운데 정렬 */
+  align-items: flex-start; /* 컬럼 상단 맞춤 */
+}
+
+/* 좌측 지도 컬럼: 가능한 넓게 */
+.map-col {
+  flex: 1 1 60%;
+  min-width: 320px;
+}
+
+/* roughmap이 부모 너비를 꽉 채우도록 */
+.root_daum_roughmap,
+.root_daum_roughmap_landing {
+  width: 100% !important;
+}
+
+/* 우측 안내 컬럼: 고정폭 느낌 */
+.info-col {
+  color: #333;
+  flex: 0 0 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* 안내 박스 공통 스타일(선택) */
+.info-col > div {
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* 타이틀 간격 정돈(선택) */
+.info-col h1 {
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.info-col p {
+  font-size: 1rem;
+  padding: 16px;
+  margin: 2 0 0px;
+}
+.info-col h3 {
+  margin: 8px 0;
+}
+
+/* 반응형: 좁은 화면에서는 위아래로 쌓기 */
+@media (max-width: 960px) {
+  .store-wrap {
+    flex-direction: column;
+    align-items: stretch; /* 가로 폭 꽉 채움 */
+  }
+  .info-col {
+    flex: none;
+    width: 100%;
+  }
+}
