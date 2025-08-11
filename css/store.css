@@ -263,6 +263,163 @@ button:disabled {
   text-align: center;
 }
 
+/* 이밴트 페이지 영역 */
+/* ===== EVENT 카드 그리드 ===== */
+.events {
+  max-width: 1100px;
+  margin: 32px auto 56px;
+  padding: 0 16px;
+}
+.events-head h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f4c81;
+  text-align: left;
+}
+.events-head p {
+  margin: 6px 0 16px;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #69707a;
+  font-weight: bold;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 일정 비율로 보기 좋게 */
+  object-fit: cover; /* 크롭하여 꽉 차게 */
+  display: block;
+}
+
+.event-body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.event-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #5c5c5c;
+}
+.event-desc {
+  margin: 0;
+  color: #6c6c6c;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.event-cta {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #0f4c81;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.05s ease;
+}
+.event-cta:hover {
+  background: #083052;
+}
+.event-cta:active {
+  transform: translateY(1px);
+}
+
+/* 이벤트 자세히보기 버튼 영역 */
+/* 모달: 전체 오버레이 */
+.event-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.event-modal.is-open {
+  display: flex;
+}
+
+.event-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* 다이얼로그 */
+.event-modal__dialog {
+  position: relative;
+  z-index: 1;
+  max-width: min(1000px, 92vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 타이틀 */
+.event-modal__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #222;
+  padding: 0 8px;
+}
+
+/* 이미지 */
+#eventModalImg {
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain; /* 원본 비율 유지 */
+  border-radius: 10px;
+}
+
+/* 닫기 버튼 */
+.event-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  color: #333;
+  background: rgba(0, 0, 0, 0.06);
+}
+.event-modal__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 모달 열렸을 때 본문 스크롤 잠금 */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* 배달 앱 버튼 영역 */
 .deil-info-title {
   text-align: center;
