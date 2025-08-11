@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-reservationMessage<html lang="ko">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STORE</title>
+    <title>DELIVERY</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
-    />
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/store.css" />
+    <link rel="stylesheet" href="../css/index.css" />
     <link rel="icon" type="image/png" href="../image/icon.png" />
   </head>
   <body>
@@ -50,7 +44,7 @@ reservationMessage<html lang="ko">
           <div class="dropdown"><a href="event.html">EVENT</a></div>
           <div class="dropdown"><a href="store.html">STORE</a></div>
           <div class="dropdown">
-            <a href="#" style="color: #dd4124">DELIVERY</a>
+            <a href="derliver.html" style="color: #dd4124">DELIVERY</a>
           </div>
         </div>
         <div class="navbar-right">
@@ -63,76 +57,95 @@ reservationMessage<html lang="ko">
     </nav>
 
     <figure class="hero">
-      <img src="../image/bg_brand_main.png" alt="브랜드 이미지" />
-      <div class="hero-brand-text">STORE</div>
+      <img src="../image/dr.jpeg" alt="브랜드 이미지" />
+      <div class="hero-brand-text">DELIVERY</div>
       <!-- 추가 -->
       <figcaption class="hero-caption"></figcaption>
     </figure>
 
-    <h2 class="store-info-title">INFORMATION</h2>
-
-    <!-- 지도+안내 영역 -->
-    <section class="store-wrap">
-      <!-- 예약 달력 영역 -->
-
-      <!-- 지도 영역 -->
-      <div class="map-col">
-        <div
-          class="reservation-calendar"
-          style="margin-bottom: 15px; text-align: center"
-        >
-          <h3 class="titleRe">Reservation</h3>
-          <div id="calendar"></div>
-
-          <!-- 선택 날짜 표시/메시지 -->
-          <div id="reservationMessage" class="reservationMessage"></div>
-
-          <!-- 예약 버튼 -->
-          <button id="reserveBtn">예약하기</button>
-          <button id="cancelBtn">예약취소</button>
+    <!-- 배달 가능 구역 카드 (위로 올림) -->
+    <section class="delivery-zone">
+      <div class="zone-card">
+        <div class="zone-header">
+          <h3 class="zone-title">배달 가능 구역</h3>
+          <span class="zone-badge">LIVE</span>
         </div>
-        <!-- (기존) 카카오 roughmap 컨테이너 -->
-        <h3 class="titleRe">MAP</h3>
-        <div
-          id="daumRoughmapContainer1754873570012"
-          class="root_daum_roughmap root_daum_roughmap_landing"
-        ></div>
 
-        <!-- (기존) roughmap 로더 -->
-        <script
-          charset="UTF-8"
-          class="daum_roughmap_loader_script"
-          src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"
-        ></script>
+        <p class="zone-sub">강남구 · 서초구(반포, 잠원 일대)</p>
+
+        <div class="zone-legend">
+          <span class="dot dot-available"></span> 가능
+          <span class="dot dot-limited"></span> 일부 가능
+          <span class="dot dot-unavailable"></span> 불가
+        </div>
+
+        <div class="zone-chips">
+          <!-- 필요 지역으로 수정해서 쓰면 됨 -->
+          <span class="chip chip-available">청담동</span>
+          <span class="chip chip-available">신사동</span>
+          <span class="chip chip-available">논현동</span>
+          <span class="chip chip-available">압구정동</span>
+          <span class="chip chip-available">역삼1동</span>
+          <span class="chip chip-available">역삼2동</span>
+          <span class="chip chip-available">서초동</span>
+          <span class="chip chip-limited">도곡동</span>
+          <span class="chip chip-limited">삼성동</span>
+          <span class="chip chip-limited">일원동</span>
+          <span class="chip chip-unavailable">대치동</span>
+          <span class="chip chip-unavailable">반포1동</span>
+          <span class="chip chip-available">반포2동</span>
+          <span class="chip chip-unavailable">잠원동</span>
+        </div>
+
+        <button class="zone-toggle" type="button" aria-expanded="false">
+          더보기
+        </button>
       </div>
-
-      <!-- 안내(우측 컬럼) -->
-      <aside class="info-col">
-        <div class="adress">
-          <h1>매장정보</h1>
-          <h3>영업시간</h3>
-          <p>평일 : AM 11:00 ~ PM 10:00(L/O 09:00)</p>
-          <p>주말 : AM 11:00 ~ PM 11:00(L/O 09:30)</p>
-          <p>BreakTime PM 03:00~05:00(주말은 없음)</p>
-        </div>
-
-        <div class="traffic">
-          <h1>대중교통</h1>
-          <p>지하철 | 7호선 청담역 8번출구 도보 10분</p>
-          <p>버스 | 343,4212 농협앞(압구정역방향)</p>
-          <p>버스 | 4212 차병원 차움(중곡역방향)</p>
-        </div>
-
-        <div class="adressCar">
-          <h1>차량이용시</h1>
-          <p>서울특별시 강남구 도산대로 442</p>
-          <p>청담사거리 290 M</p>
-          <p>주차시간은 최대 2시간 무료</p>
-        </div>
-      </aside>
     </section>
 
-    <!-- 푸터 영역 -->
+    <!-- 카드 두 개를 나란히 배치 -->
+    <div class="delivery-cards">
+      <!-- 배민 카드 -->
+      <section class="delivery-card">
+        <figure class="delivery-card__photo">
+          <img src="../image/배민.png" alt="배민 로고" />
+        </figure>
+        <div class="delivery-card__panel">
+          <h3 class="delivery-card__title_bemin">배달의 민족</h3>
+          <p class="delivery-card__desc">
+            민트빛 빠른 배달 서비스!<br />
+            배달의 민족 앱에서 편리하게 주문하세요.
+          </p>
+          <a
+            href="https://baemin.com"
+            target="_blank"
+            class="delivery-btn bemin-btn"
+            >배민 바로가기</a
+          >
+        </div>
+      </section>
+
+      <!-- 쿠팡이츠 카드 -->
+      <section class="delivery-card">
+        <figure class="delivery-card__photo">
+          <img src="../image/쿠팡이츠.png" alt="쿠팡이츠 로고" />
+        </figure>
+        <div class="delivery-card__panel">
+          <h3 class="delivery-card__title_coupang">쿠팡이츠</h3>
+          <p class="delivery-card__desc">
+            단건 배달의 속도와 신선함!<br />
+            쿠팡이츠 앱에서 바로 주문하세요.
+          </p>
+          <a
+            href="https://www.coupangeats.com"
+            target="_blank"
+            class="delivery-btn coupangeats-btn"
+            >쿠팡이츠 바로가기</a
+          >
+        </div>
+      </section>
+    </div>
+
     <footer class="site-footer">
       <div class="footer-upper">
         <img src="../image/logo_w.png" alt="로고" class="footer-logo" />
@@ -156,7 +169,7 @@ reservationMessage<html lang="ko">
           <div class="footer-column">
             <h4>EVENT</h4>
             <ul>
-              <li><a href="event.html">프로모션</a></li>
+              <li><a href="EVENT.html">프로모션</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -199,6 +212,6 @@ reservationMessage<html lang="ko">
       </button>
     </footer>
 
-    <script src="../js/store.js"></script>
+    <script src="../js/derliver.js"></script>
   </body>
 </html>

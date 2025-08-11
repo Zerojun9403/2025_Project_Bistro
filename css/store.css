@@ -30,14 +30,165 @@ body {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* 가독성 향상 */
   font-family: Helvetica, Arial, sans-serif;
 }
-
 .store-info-title {
   text-align: center;
-  font-size: 4rem;
-  margin: 40px 0 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
   color: #5c5c5c;
+  font-size: 3rem;
+}
+
+.titleRe {
+  text-align: left;
+  color: #5c5c5c;
+  font-size: 2rem;
+}
+
+.reserveBtn {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  border: none;
+}
+.reservationMessage {
+  margin-top: 10px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.ui-datepicker {
+  z-index: 9999 !important;
+}
+.reserved-date a {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 달력 카드 레이아웃 */
+.reservation-calendar {
+  max-width: 720px; /* 카카오맵과 폭 맞춤 */
+  margin: 0 auto 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* jQuery UI 달력 기본 */
+#calendar .ui-datepicker {
+  width: 100%;
+  border: 0;
+  padding: 12px 12px 16px;
+  font-size: 16px; /* 전체 글자 크기 */
+  border-radius: 12px;
+}
+
+/* 헤더(월/년, 이전/다음) */
+#calendar .ui-datepicker-header {
+  background: #0f4c81;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 40px;
+  position: relative;
+}
+#calendar .ui-datepicker-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 이전/다음 버튼을 아이콘처럼 */
+#calendar .ui-datepicker-prev,
+#calendar .ui-datepicker-next {
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+#calendar .ui-datepicker-prev:hover,
+#calendar .ui-datepicker-next:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+#calendar .ui-datepicker-prev {
+  left: 8px;
+}
+#calendar .ui-datepicker-next {
+  right: 8px;
+}
+
+/* 요일 줄 */
+#calendar .ui-datepicker thead th {
+  color: #666;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+/* 날짜 셀 */
+#calendar .ui-datepicker td {
+  padding: 4px;
+}
+#calendar .ui-datepicker td a,
+#calendar .ui-datepicker td span {
+  display: inline-flex;
+  width: 44px;
+  height: 44px; /* 터치 영역 넉넉하게 */
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, background-color 0.12s ease,
+    border-color 0.12s ease;
+  font-weight: 600;
+}
+
+/* 일반 날짜 hover */
+#calendar .ui-datepicker td a:hover {
+  background: #f3f6ff;
+  border-color: #dbe2ff;
+}
+
+/* 오늘 날짜 배지 */
+#calendar .ui-datepicker-today a {
+  border-color: #8bb8ff;
+  background: #eef5ff;
+}
+
+/* 선택한 날짜 */
+#calendar .ui-datepicker .ui-state-active {
+  background: #2ecc71; /* 선택 시 연두 */
+  color: #fff !important;
+  border-color: #2ecc71;
+  transform: scale(1.02);
+}
+
+/* 주말 색 */
+#calendar .ui-datepicker-week-end a {
+  color: #cc4165; /* 살짝 핑크톤 텍스트 */
+}
+
+/* 예약된 날짜(불가 표시) */
+#calendar .reserved-date a {
+  background: #ffe4e9; /* 연핑크 배경 */
+  color: #b23a57;
+  text-decoration: line-through;
+  opacity: 0.85;
+  border-color: #ffc2cf;
+}
+
+/* 달력 팝업이 가려지는 문제 방지 */
+.ui-datepicker {
+  z-index: 9999 !important;
 }
 
 /* 캡션: 이미지 '하단'에 노출  */
@@ -87,6 +238,11 @@ body {
   padding: 16px;
   border-radius: 12px;
   background: #fff;
+  cursor: pointer;
+}
+.info-col > div:hover {
+  border: 1px solid #8bb8ff;
+  background: #8bb8ff;
 }
 
 /* 타이틀 간격 정돈(선택) */
@@ -108,6 +264,309 @@ body {
   text-align: center;
 }
 
+/* 배달 앱 버튼 영역 */
+.deil-info-title {
+  text-align: center;
+  color: #5c5c5c;
+  font-size: 3rem;
+}
+
+.delivery {
+  text-align: center;
+  color: #5c5c5c;
+  font-size: 2rem;
+}
+/* about-split 구조 재사용 */
+.delivery-card {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.delivery-card .about-split__photo {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+.delivery-card .about-split__photo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.delivery-card .about-split__panel {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.delivery-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+/* 카드 컨테이너: 가로 나란히 */
+.delivery-cards {
+  max-width: 1200px; /* 전체 폭 더 넓힘 */
+  margin: 40px auto;
+  display: flex;
+  gap: 32px; /* 카드 사이 간격도 넓힘 */
+  padding: 0 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 각 카드: 세로형 레이아웃 + 크기 확대 */
+.delivery-card {
+  flex: 1 1 360px; /* 최소 폭 360px */
+  max-width: 500px; /* 카드 최대 폭 */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 이미지 영역: 크기 확대 */
+.delivery-card__photo {
+  width: 100%;
+  background: #f7f7f7;
+  padding: 40px 24px; /* 여백 늘림 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delivery-card__photo img {
+  max-width: 260px; /* 로고 더 크게 */
+  height: auto;
+}
+
+/* 텍스트/버튼 영역: 글씨 확대 */
+.delivery-card__panel {
+  padding: 28px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delivery-card__title_bemin {
+  font-size: 1.8rem; /* 제목 크게 */
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #2ac1bc;
+}
+
+.delivery-card__title_bemin {
+  font-size: 1.8rem; /* 제목 크게 */
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #2ac1bc;
+}
+
+.delivery-card__title_coupang {
+  font-size: 1.8rem; /* 제목 크게 */
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #fa9a00;
+}
+.delivery-card__desc {
+  font-size: 1.1rem; /* 설명글 조금 크게 */
+  color: #5c5c5c;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 버튼 공통: 큼직하게 */
+.delivery-btn {
+  display: inline-block;
+  width: min(340px, 90%);
+  padding: 16px 0;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.08s ease;
+}
+.delivery-btn:active {
+  transform: translateY(1px);
+}
+
+/* 브랜드 색상 */
+.bemin-btn {
+  color: #2ac1bc;
+  border: 1px solid #2ac1bc;
+}
+.bemin-btn:hover {
+  color: white;
+  background-color: #2ac1bc;
+}
+.coupangeats-btn {
+  color: #fa9a00;
+  border: 1px solid #fa9a00;
+}
+.coupangeats-btn:hover {
+  color: white;
+  background-color: #c77900;
+}
+
+/* ===== 배달 가능 구역 카드 ===== */
+.delivery-zone {
+  max-width: 900px;
+  margin: 28px auto 12px;
+  padding: 0 16px;
+}
+
+.zone-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  padding: 20px 22px;
+  border: 1px solid #f1f1f1;
+}
+
+/* 헤더: 타이틀 + 뱃지 */
+.zone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.zone-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f4c81; /* 브랜드 톤 */
+}
+.zone-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #0f4c81, #173b5e);
+  border-radius: 999px;
+}
+
+/* 부제목 */
+.zone-sub {
+  margin: 8px 0 14px;
+  color: #5c5c5c;
+  line-height: 1.6;
+}
+
+/* 범례(legend) */
+.zone-legend {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  vertical-align: -1px;
+  margin-right: 6px;
+}
+.dot-available {
+  background: #2ecc71;
+}
+.dot-limited {
+  background: #ffd166;
+}
+.dot-unavailable {
+  background: #ff8fa3;
+}
+
+/* 칩(지역 태그) */
+.zone-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  overflow: hidden; /* 더보기/접기용 */
+  transition: max-height 0.25s ease;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* 칩 상태별 컬러 */
+.chip-available {
+  background: #e9f9ef;
+  color: #1e8f54;
+  border-color: #c8efd7;
+}
+.chip-limited {
+  background: #fff6e1;
+  color: #a87900;
+  border-color: #ffe6ae;
+}
+.chip-unavailable {
+  background: #ffe6ec;
+  color: #b23a57;
+  border-color: #ffc2cf;
+}
+
+/* 더보기 버튼 */
+.zone-toggle {
+  margin: 14px auto 0;
+  display: block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #5c5c5c;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.05s ease;
+}
+.zone-toggle:hover {
+  background: #4c4c4c;
+}
+.zone-toggle:active {
+  transform: translateY(1px);
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .zone-title {
+    font-size: 1.4rem;
+  }
+  .zone-chips {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
 /* 반응형: 좁은 화면에서는 위아래로 쌓기 */
 @media (max-width: 960px) {
   .store-wrap {
@@ -117,5 +576,29 @@ body {
   .info-col {
     flex: none;
     width: 100%;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .delivery-card {
+    flex-direction: column;
+  }
+  .delivery-card .about-split__photo {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* 작은 화면에서도 그대로 예쁨 */
+@media (max-width: 480px) {
+  .delivery-card .about-split__photo img {
+    max-width: 200px;
+  }
+  .delivery-card .about-split__title {
+    font-size: 1.35rem;
+  }
+  .delivery-btn {
+    font-size: 16px;
   }
 }
