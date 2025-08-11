@@ -242,7 +242,6 @@ button:disabled {
 }
 .info-col > div:hover {
   border: 1px solid #8bb8ff;
-  background: #8bb8ff;
 }
 
 /* 타이틀 간격 정돈(선택) */
