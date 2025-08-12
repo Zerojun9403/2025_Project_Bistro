@@ -81,6 +81,10 @@ nav.scrolled {
   align-items: center;
 }
 
+.navbar-right p {
+  color: #5a5b9f;
+}
+
 .navbar-right a {
   color: #5a5b9f;
   text-decoration: none;
@@ -681,7 +685,11 @@ button {
     height: 60vh;
   }
 }
-
+@media (max-width: 768px) {
+  .navbar-right p {
+    display: none;
+  }
+}
 /* 600px 이하: 더 낮춤 + 컨트롤 터치 친화 */
 @media (max-width: 600px) {
   .slider-container {
