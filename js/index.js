@@ -4,7 +4,9 @@ const dots = document.querySelectorAll(".dot");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 
-if (slides && prevBtn && nextBtn) {
+(function initMainSlider() {
+  if (!(slides && prevBtn && nextBtn)) return;
+
   let currentIndex = 0;
   const slideCount = document.querySelectorAll(".slide").length;
 
@@ -20,11 +22,13 @@ if (slides && prevBtn && nextBtn) {
   prevBtn.addEventListener("click", () => {
     const prev = (currentIndex - 1 + slideCount) % slideCount;
     goToSlide(prev);
+    resetMainAuto();
   });
 
   nextBtn.addEventListener("click", () => {
     const next = (currentIndex + 1) % slideCount;
     goToSlide(next);
+    resetMainAuto();
   });
 
   if (dots.length) {
@@ -32,71 +36,101 @@ if (slides && prevBtn && nextBtn) {
       dot.addEventListener("click", () => {
         const i = parseInt(dot.dataset.index, 10);
         goToSlide(i);
+        resetMainAuto();
       });
     });
   }
 
-  // 슬라이더가 있을 때만 자동 슬라이드
-  setInterval(() => {
+  // 자동 슬라이드
+  let mainTimer = setInterval(() => {
     const next = (currentIndex + 1) % slideCount;
     goToSlide(next);
   }, 4000);
-}
+
+  function resetMainAuto() {
+    clearInterval(mainTimer);
+    mainTimer = setInterval(() => {
+      const next = (currentIndex + 1) % slideCount;
+      goToSlide(next);
+    }, 4000);
+  }
+})();
 
 // ----- BEST 메뉴 슬라이더 -----
-// BEST 메뉴 슬라이더
-const bestSlider = document.querySelector(".best-slider");
-const bestPrev = document.querySelector(".best-prev");
-const bestNext = document.querySelector(".best-next");
-const bestCards = document.querySelectorAll(".best-card");
+(function initBestSlider() {
+  const bestSlider = document.querySelector(".best-slider");
+  const bestPrev = document.querySelector(".best-prev");
+  const bestNext = document.querySelector(".best-next");
+  const bestCards = document.querySelectorAll(".best-card");
+  if (!(bestSlider && bestPrev && bestNext && bestCards.length)) return;
 
-if (bestSlider && bestPrev && bestNext && bestCards.length) {
   let bestCurrentIndex = 0;
-  const bestTotal = bestCards.length; // 총 카드 개수 (4)
+  const bestTotal = bestCards.length;
+
+  function getCardsPerView() {
+    return window.innerWidth <= 768 ? 1 : 2;
+  }
 
   function goBest(index) {
-    // index가 0~3 사이를 순환
-    if (index < 0) index = bestTotal - 1;
-    if (index >= bestTotal) index = 0;
+    const perView = getCardsPerView();
+    const maxIndex = Math.max(0, bestTotal - perView);
+    if (index < 0) index = maxIndex;
+    if (index > maxIndex) index = 0;
 
-    bestSlider.style.transform = `translateX(-${index * 100}%)`;
+    // 카드가 perView개 보일 때, 한 스텝은 (100 / perView)%
+    bestSlider.style.transform = `translateX(-${index * (100 / perView)}%)`;
     bestCurrentIndex = index;
   }
 
   bestPrev.addEventListener("click", () => {
     goBest(bestCurrentIndex - 1);
+    resetBestAuto();
   });
 
   bestNext.addEventListener("click", () => {
     goBest(bestCurrentIndex + 1);
+    resetBestAuto();
+  });
+
+  window.addEventListener("resize", () => {
+    // 화면 변경 시 현재 index 기준으로 다시 정렬
+    goBest(bestCurrentIndex);
   });
 
   // 자동 슬라이드 (3초마다)
-  setInterval(() => {
+  let bestTimer = setInterval(() => {
     goBest(bestCurrentIndex + 1);
   }, 3000);
-}
+
+  function resetBestAuto() {
+    clearInterval(bestTimer);
+    bestTimer = setInterval(() => {
+      goBest(bestCurrentIndex + 1);
+    }, 3000);
+  }
+})();
+
 // ----- 스크롤 네비 색상 -----
-const navEl = document.querySelector("nav");
-if (navEl) {
+(function initScrollNav() {
+  const navEl = document.querySelector("nav");
+  if (!navEl) return;
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) navEl.classList.add("scrolled");
     else navEl.classList.remove("scrolled");
   });
-}
+})();
 
 // ----- 햄버거 토글 -----
-(function () {
+(function initHamburger() {
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
-
   function init() {
     const toggle = document.getElementById("menuToggle");
     const wrapper = document.getElementById("menuWrapper");
-    if (!toggle || !wrapper) return;
+    if (!(toggle && wrapper)) return;
 
     toggle.addEventListener("click", () => {
       wrapper.classList.toggle("active");

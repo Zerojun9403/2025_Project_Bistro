@@ -10,10 +10,9 @@ body {
 }
 
 /* 메뉴바 */
-
 nav {
   background-color: #ddd;
-  backdrop-filter: blur(50%);
+  backdrop-filter: blur(50px);
   padding: 15px 0;
   position: fixed; /* 상단 고정 */
   width: 100%;
@@ -23,9 +22,9 @@ nav {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/*스크롤 시 적용될 클래스*/
+/* 스크롤 시 적용될 클래스 */
 nav.scrolled {
-  background-color: #ddd; /* 원하는 색으로 변경 */
+  background-color: #ddd;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -37,18 +36,10 @@ nav.scrolled {
   align-items: center;
   padding: 0 20px;
 }
-.nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+
 .navbar-logo img {
-  height: 200px; /* 더 크게 */
+  height: 200px; /* 필요 시 조정 */
   width: auto;
-  max-height: auto;
   margin-top: 0;
   margin-right: auto;
 }
@@ -92,24 +83,26 @@ nav.scrolled {
   transition: background-color 0.3s ease;
   font-weight: bold;
 }
+
 .navbar-right a:hover {
   color: #3d3d3d;
   font-weight: bold;
 }
+
 .dropdown-dry a:hover {
-  color: tomato; /* 원하는 색상 */
-  text-decoration: underline; /* 밑줄 추가 */
-  background-color: rgba(255, 99, 71, 0.1); /* 배경 살짝 강조 */
-  transition: 0.3s ease; /* 부드러운 전환 */
+  color: tomato;
+  text-decoration: underline;
+  background-color: rgba(255, 99, 71, 0.1);
+  transition: 0.3s ease;
 }
 
-/* 슬라이더 */
+/* 메인 슬라이더 */
 .slider-container {
   position: relative;
   width: 100vw;
   height: 90vh;
   overflow: hidden;
-  margin-top: 0; /* 메뉴바 높이만큼 내려줌 */
+  margin-top: 0;
 }
 
 .slides {
@@ -128,14 +121,8 @@ nav.scrolled {
   object-fit: cover;
   display: block;
 }
-.slider-container {
-  height: 80vh;
-  margin-top: 0;
-}
-.slide img {
-  height: 80vh;
-}
 
+/* 컨트롤 */
 .controls {
   position: absolute;
   top: 50%;
@@ -155,6 +142,7 @@ nav.scrolled {
   padding: 10px;
 }
 
+/* 점(도트) */
 .dots {
   position: absolute;
   bottom: 30px;
@@ -177,7 +165,7 @@ nav.scrolled {
   background-color: #333;
 }
 
-/* 하단 메뉴 소개 */
+/* 하단 메뉴 소개 공통 */
 .menu-detail {
   max-width: 1000px;
   margin: 60px auto;
@@ -190,41 +178,144 @@ nav.scrolled {
   color: #333;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  margin-top: 30px;
-}
-
-.menu-item {
-  background-color: #fff8f0;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-}
-
-.menu-content {
+/* BEST 메뉴 카드 */
+.best-menu-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
 }
 
-.menu-text {
-  font-size: 20px;
+.best-slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.best-slider {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+/* PC 기본: 2장(50%) */
+.best-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 50%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.best-card:hover {
+  transform: translateY(-8px);
+}
+
+.best-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.best-card:hover img {
+  transform: scale(1.05);
+}
+
+.best-info {
+  padding: 16px;
+  text-align: center;
+  color: #333;
+}
+
+.best-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.best-info p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.best-info .price {
+  font-size: 1rem;
   font-weight: bold;
+  color: #d80000;
+}
+
+.best-prev,
+.best-next {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 15px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.best-prev:hover,
+.best-next:hover {
+  color: #c00;
+}
+
+/* 퀵 링크 */
+.quick-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+  max-width: 1000px;
+  background-color: #f5f5f5;
+  padding: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.quick-link {
+  text-align: center;
+  text-decoration: none;
+  color: #f5f5f5;
   flex: 1;
 }
 
-.menu-img img {
-  width: 180px;
-  height: 180px;
-  border-radius: 10px;
-  object-fit: cover;
+.quick-link strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-/* index 연결    */
+.quick-link.reserve {
+  background-color: #a07d5e;
+  color: #fff;
+  padding: 20px 10px;
+}
+
+.quick-link.savepoint {
+  background-color: #3d3d3d;
+  color: #fff;
+  padding: 20px 10px;
+}
+
+.quick-link.delivery {
+  background-color: #c00;
+  color: #fff;
+  padding: 20px 10px;
+}
+
+.quick-link:hover {
+  opacity: 0.9;
+}
+
+/* 폼/알림 공통 */
 h1 {
   color: #333;
   margin-bottom: 30px;
@@ -286,19 +377,7 @@ button {
   text-align: center;
 }
 
-.login-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.welcome-text {
-  text-align: center;
-  color: #666;
-  font-size: 1.2em;
-  margin-top: 30px;
-}
-
-/* 드롭다운 기본 구조 */
+/* 드롭다운 */
 .dropdown {
   position: relative;
 }
@@ -306,7 +385,7 @@ button {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%; /* 메뉴바 바로 아래 */
+  top: 100%;
   left: 0;
   background-color: #f7cac9;
   min-width: 150px;
@@ -326,7 +405,7 @@ button {
 
 .dropdown-content a:hover {
   color: #9bb7d4;
-  background-color: none;
+  background-color: transparent;
   border-radius: 1px;
 }
 
@@ -343,188 +422,6 @@ button {
 /* 마우스 올릴 때만 보이게 */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.best-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.best-card {
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 100%; /* 항상 한 장씩 표시 */
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.best-slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.best-card:hover {
-  transform: translateY(-8px);
-}
-
-.best-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.best-card:hover img {
-  transform: scale(1.05);
-}
-
-.best-info {
-  padding: 16px;
-  text-align: center;
-  color: #333;
-}
-
-.best-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.best-info p {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 10px;
-}
-
-.best-info .price {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #d80000;
-}
-
-.best-menu-wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.best-slider-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.best-slider {
-  display: flex;
-  transition: transform 0.4s ease;
-}
-
-.best-card {
-  flex: 0 0 50%; /* 한 번에 2개씩 보여줌 */
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.best-prev,
-.best-next {
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0 15px;
-  color: #333;
-  transition: color 0.3s;
-}
-
-.best-prev:hover,
-.best-next:hover {
-  color: #c00;
-}
-.quick-links {
-  display: flex;
-  justify-content: space-around;
-  margin: 50px auto;
-  max-width: 1000px;
-  background-color: #f5f5f5;
-  padding: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.best-card {
-  flex: 0 0 50%;
-  padding: 10px;
-}
-.best-card img {
-  height: 180px;
-}
-
-.quick-link {
-  text-align: center;
-  text-decoration: none;
-  color: #f5f5f5;
-  flex: 1;
-}
-
-.quick-link strong {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.quick-link.reserve {
-  background-color: #a07d5e;
-  color: #fff;
-  padding: 20px 10px;
-}
-
-.quick-link.savepoint {
-  background-color: #3d3d3d;
-  color: #fff;
-  padding: 20px 10px;
-}
-
-.quick-link.delivery {
-  background-color: #c00;
-  color: #fff;
-  padding: 20px 10px;
-}
-
-.quick-link:hover {
-  opacity: 0.9;
-}
-
-/* 데스크톱 유지 */
-.quick-links {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-}
-
-/* 섹션 좌우 여백 */
-.menu-detail {
-  max-width: min(1000px, 92%);
-  padding: 16px;
-}
-
-/* 카드 그리드(유동) */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(16px, 3vw, 40px);
-}
-.menu-img img {
-  width: 160px;
-  height: 160px;
 }
 
 /* ===== 푸터 스타일 ===== */
@@ -551,7 +448,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: clamp(24px, 5vw, 50px);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -600,11 +497,6 @@ button {
   font-size: 12px;
 }
 
-/* 데스크톱: 여러 컬럼 */
-.footer-columns {
-  gap: clamp(24px, 5vw, 50px);
-}
-
 /* TOP 버튼 */
 .top-btn {
   position: fixed;
@@ -621,8 +513,6 @@ button {
   cursor: pointer;
   text-align: center;
   z-index: 999;
-
-  /* 중앙 정렬 추가 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -632,27 +522,14 @@ button {
   background-color: #a30000;
 }
 
-/* 중앙정렬(이미 적용했다면 생략 가능) */
-.top-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* 전체화면 영상 - 반응형(cover) */
-.fullscreen-video-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100svh; /* 모바일 브라우저 UI 변화에도 안정 */
-  overflow: hidden;
-}
-
 .fullscreen-video-wrapper {
   position: relative;
   width: 100%;
   height: 100svh;
   overflow: hidden;
 }
+
 .fullscreen-video-wrapper iframe {
   position: absolute;
   top: 50%;
@@ -674,17 +551,7 @@ button {
   color: #333;
 }
 
-/* 햄버거 버튼: 기본 숨김(PC) */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #333;
-}
-
-/* 반응형 모바일 부분 손대지 마세요!!!!!!!*/
-/* 메뉴 래퍼: PC 기본은 그대로 노출 */
-/* 992px 이하: 살짝 낮춤 */
+/* 반응형 */
 @media (max-width: 992px) {
   .slider-container {
     height: 60vh;
@@ -692,13 +559,81 @@ button {
   .slide img {
     height: 60vh;
   }
+  .best-card img {
+    height: 200px;
+  }
 }
+
 @media (max-width: 768px) {
   .navbar-right p {
     display: none;
   }
+
+  .best-card {
+    flex: 0 0 100%;
+  }
+  .best-slider {
+    gap: 0;
+  }
+  .best-prev,
+  .best-next {
+    font-size: 1.6rem;
+    padding: 0 10px;
+  }
+
+  .quick-links {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  .quick-link {
+    border-radius: 8px;
+  }
+  .quick-link strong {
+    font-size: 16px;
+  }
+
+  .fullscreen-video-wrapper {
+    height: 90svh;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .menu-wrapper {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #ddd;
+    padding: 10px 0;
+  }
+  .menu-wrapper.active {
+    display: flex;
+  }
+  .navbar-menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .navbar-right {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .top-btn {
+    width: 64px;
+    height: 64px;
+    bottom: 24px;
+    right: 16px;
+    font-size: 16px;
+  }
 }
-/* 600px 이하: 더 낮춤 + 컨트롤 터치 친화 */
+
 @media (max-width: 600px) {
   .slider-container {
     height: 48vh;
@@ -713,46 +648,6 @@ button {
   .dots {
     bottom: 16px;
   }
-}
-
-/* 992px 이하: 카드 이미지 살짝 키우기 */
-@media (max-width: 992px) {
-  .best-card img {
-    height: 200px;
-  }
-}
-
-/* 768px 이하: 1개씩(세로 스택) */
-@media (max-width: 768px) {
-  .best-card {
-    flex: 0 0 100%;
-  }
-  .best-slider {
-    gap: 0;
-  }
-  .best-prev,
-  .best-next {
-    font-size: 1.6rem;
-    padding: 0 10px;
-  }
-}
-
-/* 768px 이하: 세로 스택 + 터치 여백 */
-@media (max-width: 768px) {
-  .quick-links {
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px;
-  }
-  .quick-link {
-    border-radius: 8px;
-  }
-  .quick-link strong {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
   .menu-content {
     flex-direction: column;
     gap: 16px;
@@ -762,82 +657,18 @@ button {
     height: auto;
   }
 }
-/* 768px 이하: 2열 */
-@media (max-width: 768px) {
-  .footer-columns {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    width: 100%;
-  }
-}
 
-/* 480px 이하: 1열 */
 @media (max-width: 480px) {
   .footer-columns {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
   }
   .footer-logo {
     width: 160px;
   }
   .footer-lower {
     font-size: 12px;
-  }
-}
-/* 모바일: 더 크게, 살짝 위로 */
-@media (max-width: 768px) {
-  .top-btn {
-    width: 64px;
-    height: 64px;
-    bottom: 24px;
-    right: 16px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .fullscreen-video-wrapper {
-    height: 90svh;
-  }
-}
-/* 좁은 화면에서 살짝 높이를 줄이고 싶다면(선택) */
-@media (max-width: 768px) {
-  .fullscreen-video-wrapper {
-    height: 90svh;
-  }
-}
-
-/* 모바일 전환 */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-wrap: wrap;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto; /* 로고 오른쪽 끝으로 */
-  }
-
-  /* 모바일에선 기본 접기 */
-  .menu-wrapper {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    background: #ddd;
-    padding: 10px 0;
-  }
-  .menu-wrapper.active {
-    display: flex;
-  }
-
-  .navbar-menu {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-  .navbar-right {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
   }
 }
