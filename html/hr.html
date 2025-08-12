@@ -3,23 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EVENT</title>
+    <title>채용</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/store.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/store.css" />
+
     <link rel="icon" type="image/png" href="../image/icon.png" />
-    <style>
-      .monEvent img {
-        display: block;
-        margin: 20px auto; /* 화면 가운데 정렬 */
-        max-width: 80%; /* 화면 폭의 80%로 제한 */
-        height: auto; /* 비율 유지 */
-      }
-    </style>
   </head>
   <body>
     <nav>
@@ -67,72 +60,103 @@
         </div>
       </div>
     </nav>
-    <!-- 이미지 영역 -->
-    <figure class="hero">
-      <img src="../image/bg_brand_main (1).png" alt="브랜드 이미지" />
-      <div class="hero-brand-text">EVENT</div>
-      <!-- 추가 -->
-      <figcaption class="hero-caption"></figcaption>
+
+    <!-- 이미지 영역-->
+    <figure class="hero hero--voc">
+      <img src="../image/hr_bg2.jpg" alt="고객의 소리 배경 이미지" />
+      <figcaption
+        class="hero__center"
+        style="
+          font-family: Nanum Myeongjo, serif;
+          font-weight: 100;
+          font-size: 40px;
+          color: #3c3c3c;
+        "
+      >
+        <strong class="hero__eyebrow">Recruitment</strong>
+        <span class="hero__title">인재 채용</span>
+        <span class="hero__subtitle">함께 커가는 즐거운 회사</span>
+      </figcaption>
     </figure>
-    <!--본문 영역(event)-->
 
-    <section class="events">
-      <div class="events-head">
-        <h2>이번 달 이벤트</h2>
-        <p>놓치면 아쉬운 혜택을 모았어요</p>
-      </div>
+    <!-- 간단 소개 -->
+    <div class="job-intro">
+      저희와 함께 성장할 <strong>정규직</strong>·<strong>아르바이트</strong>
+      인재를 모집합니다.
+    </div>
 
-      <div class="event-grid">
-        <!-- 카드 1 -->
-        <article class="event-card">
-          <figure class="event-thumb">
-            <img
-              src="../image/event.jpg"
-              alt="오픈 한정 이벤트"
-              loading="lazy"
-            />
-          </figure>
-          <div class="event-body">
-            <h3 class="event-title">오픈 기념 행사</h3>
-            <p class="event-desc">8/1–8/31 · 매장/딜리버리 동시 진행</p>
-            <a
-              class="event-cta"
-              href="#"
-              role="button"
-              data-img="../image/event.jpg"
-              data-title="오픈 기념 이벤트"
-              >자세히 보기</a
-            >
-          </div>
-        </article>
+    <!-- 필터(선택형) -->
+    <div class="filter-tabs" role="tablist">
+      <button
+        class="tab active"
+        data-target="all"
+        aria-selected="true"
+        style="color: #6b6b6b"
+      >
+        전체
+      </button>
+      <button class="tab" data-target="fulltime" style="color: #6b6b6b">
+        정규직
+      </button>
+      <button class="tab" data-target="parttime" style="color: #6b6b6b">
+        아르바이트
+      </button>
+    </div>
 
-        <!-- 필요하면 카드 복제해서 2,3… 추가 -->
-        <!-- <article class="event-card">…</article> -->
-      </div>
-    </section>
+    <div class="jobs-section-title">
+      <span class="dot"></span>
+      <h2>모집 분야</h2>
+    </div>
 
-    <!-- 자세히 보 클릭시 팝업으로  이미지 보이기-->
-    <!-- (페이지 맨 아래, </section> 다음 정도) 모달 한 번만 선언 -->
-    <div
-      class="event-modal"
-      id="eventModal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="event-modal__backdrop" data-close></div>
-      <div class="event-modal__dialog" role="document">
-        <button
-          type="button"
-          class="event-modal__close"
-          aria-label="닫기"
-          data-close
-        >
-          &times;
-        </button>
-        <div class="event-modal__title" id="eventModalTitle"></div>
-        <img id="eventModalImg" alt="" />
-      </div>
+    <!-- 두 카드 나란히 (배달 카드 UI 재사용) -->
+    <div class="delivery-cards jobs">
+      <!-- 정규직 카드 -->
+      <section class="delivery-card job-card" data-type="fulltime">
+        <figure class="delivery-card__photo job-photo">
+          <img
+            src="../image/icon_fulltime.png"
+            alt="정규직 아이콘"
+            onerror="this.src='../image/logo_le.png';"
+          />
+        </figure>
+        <div class="delivery-card__panel">
+          <span class="badge">상시 채용</span>
+          <h3 class="delivery-card__title_bemin">정규직 채용</h3>
+          <p class="delivery-card__desc">
+            브랜드와 함께 길게 성장할 동료를 찾고 있어요.
+          </p>
+          <ul class="delivery-card__list">
+            <li>모집: 홀 매니저 / 키친 / 마케팅·운영</li>
+            <li>근무: 주 5일(협의), 유급휴가·식대 지원</li>
+            <li>우대: 외식/호텔 경력, 관련 자격 보유</li>
+          </ul>
+          <a href="#" class="delivery-btn fulltime-btn">정규직 공고 보기</a>
+        </div>
+      </section>
+
+      <!-- 아르바이트 카드 -->
+      <section class="delivery-card job-card" data-type="parttime">
+        <figure class="delivery-card__photo job-photo">
+          <img
+            src="../image/icon_parttime.png"
+            alt="아르바이트 아이콘"
+            onerror="this.src='../image/logo_le.png';"
+          />
+        </figure>
+        <div class="delivery-card__panel">
+          <span class="badge">주말·평일 선택</span>
+          <h3 class="delivery-card__title_coupang">아르바이트 채용</h3>
+          <p class="delivery-card__desc">
+            유연한 스케줄로 일하고 싶은 분 환영해요.
+          </p>
+          <ul class="delivery-card__list">
+            <li>모집: 홀/서빙 / 바 / 주방 보조</li>
+            <li>근무: 주 2~5일, 4시간~(협의)</li>
+            <li>복지: 식사 제공, 야간수당, 근무평가 인센티브</li>
+          </ul>
+          <a href="#" class="delivery-btn parttime-btn">아르바이트 공고 보기</a>
+        </div>
+      </section>
     </div>
 
     <!-- 푸터 영역-->
@@ -201,7 +225,25 @@
       </button>
     </footer>
 
-    <script src="../js/EVENT.js"></script>
+    <script>
+      // 간단한 탭 필터 (전체/정규직/아르바이트)
+      $(function () {
+        $(".filter-tabs .tab").on("click", function () {
+          const target = $(this).data("target");
+          $(".filter-tabs .tab")
+            .removeClass("active")
+            .attr("aria-selected", "false");
+          $(this).addClass("active").attr("aria-selected", "true");
+
+          if (target === "all") {
+            $("[data-type]").show();
+          } else {
+            $("[data-type]").hide();
+            $('[data-type="' + target + '"]').show();
+          }
+        });
+      });
+    </script>
     <script src="../js/index.js"></script>
   </body>
 </html>

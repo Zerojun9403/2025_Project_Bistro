@@ -23,37 +23,43 @@
           </a>
         </div>
 
-        <!-- navrbar -->
-        <div class="navbar-menu">
-          <div class="dropdown">
-            <a>BRAND</a>
-            <div class="dropdown-content">
-              <a href="company.html">브랜드 소개</a>
-            </div>
-          </div>
+        <!-- 햄버거 버튼 -->
+        <div class="menu-toggle" id="menuToggle">☰</div>
 
-          <div class="dropdown">
-            <a href="#">MENU</a>
-            <div class="dropdown-content">
-              <a href="menu_Steak.html">스테이크</a>
-              <a href="menu-pasta_pizza.html">파스타&피자</a>
-              <a href="menu-salad.html">셀러드</a>
-              <a href="menu-dessert.html">디저트</a>
+        <!-- 전체 매뉴 래퍼 -->
+        <div class="menu-wrapper" id="menuWrapper">
+          <div class="navbar-menu">
+            <div class="dropdown">
+              <a>BRAND</a>
+              <div class="dropdown-content">
+                <a href="company.html">브랜드 소개</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a>MENU</a>
+              <div class="dropdown-content">
+                <a href="menu_Steak.html">스테이크</a>
+                <a href="menu-pasta_pizza.html">파스타&피자</a>
+                <a href="menu-salad.html">셀러드</a>
+                <a href="menu-dessert.html">디저트</a>
+              </div>
+            </div>
+            <div class="dropdown"><a href="event.html">EVENT</a></div>
+            <div class="dropdown"><a href="store.html">STORE</a></div>
+            <div class="dropdown-dry">
+              <a href="derliver.html" style="color: lightcoral">DELIVERY</a>
+            </div>
+            <div class="navbar-right">
+              <a href="voc.html">고객의 소리</a>
+              <a href="hr.html">채용</a>
+              <a href="login.html">로그인</a>
             </div>
           </div>
-          <div class="dropdown"><a href="event.html">EVENT</a></div>
-          <div class="dropdown"><a href="store.html">STORE</a></div>
-          <div class="dropdown">
-            <a href="derliver.html" style="color: #dd4124">DELIVERY</a>
-          </div>
-        </div>
-        <div class="navbar-right">
-          <a href="voc.html">고객의 소리</a>
-          <a href="#">채용</a>
-          <a href="login.html">로그인</a>
         </div>
       </div>
     </nav>
+
     <!-- 이미지 영역 -->
     <figure class="hero">
       <img src="../image/스테이크배경이미지.jpg" alt="브랜드 이미지" />
@@ -61,6 +67,7 @@
       <!-- 추가 -->
       <figcaption class="hero-caption"></figcaption>
     </figure>
+
     <!--본문 영역-->
     <!-- 스테이크 리스트 (데이터로 렌더링) -->
     <section class="menu-grid" id="steakGrid"></section>
@@ -94,7 +101,7 @@
           <div class="footer-column">
             <h4>SERVICE</h4>
             <ul>
-              <li><a href="#">고객센터</a></li>
+              <li><a href="voc.html">고객센터</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -130,6 +137,8 @@
         ▲ TOP
       </button>
     </footer>
+
     <script src="../js/menu_Steak.js"></script>
+    <script src="../js/index.js"></script>
   </body>
 </html>

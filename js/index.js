@@ -1,70 +1,99 @@
-// 슬라이더 관련 변수
-let currentIndex = 0;
+// ----- 메인 슬라이더 -----
 const slides = document.querySelector(".slides");
-const slideCount = document.querySelectorAll(".slide").length;
 const dots = document.querySelectorAll(".dot");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
 
-// 슬라이드 이동 함수
-function goToSlide(index) {
-  slides.style.transform = `translateX(-${index * 100}vw)`;
-  dots.forEach((dot) => dot.classList.remove("active"));
-  dots[index].classList.add("active");
-  currentIndex = index;
-}
+if (slides && prevBtn && nextBtn) {
+  let currentIndex = 0;
+  const slideCount = document.querySelectorAll(".slide").length;
 
-// 이전 버튼 클릭
-document.getElementById("prev").addEventListener("click", () => {
-  const prevIndex = (currentIndex - 1 + slideCount) % slideCount;
-  goToSlide(prevIndex);
-});
-
-// 다음 버튼 클릭
-document.getElementById("next").addEventListener("click", () => {
-  const nextIndex = (currentIndex + 1) % slideCount;
-  goToSlide(nextIndex);
-});
-
-// 도트 클릭
-dots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const index = parseInt(dot.dataset.index);
-    goToSlide(index);
-  });
-});
-
-// 자동 슬라이드 (4초마다 이동)
-setInterval(() => {
-  const nextIndex = (currentIndex + 1) % slideCount;
-  goToSlide(nextIndex);
-}, 4000);
-
-// 스크롤 시 메뉴바 배경색 변경
-window.addEventListener("scroll", function () {
-  const nav = document.querySelector("nav");
-  if (window.scrollY > 50) {
-    nav.classList.add("scrolled");
-  } else {
-    nav.classList.remove("scrolled");
+  function goToSlide(index) {
+    slides.style.transform = `translateX(-${index * 100}vw)`;
+    if (dots.length) {
+      dots.forEach((d) => d.classList.remove("active"));
+      if (dots[index]) dots[index].classList.add("active");
+    }
+    currentIndex = index;
   }
-});
 
-// BEST 메뉴 슬라이드
-let bestCurrentIndex = 0;
-const bestSlider = document.querySelector(".best-slider");
-const bestCards = document.querySelectorAll(".best-card");
-const bestTotalSlides = Math.ceil(bestCards.length / 2); // 2개씩 보여줌
+  prevBtn.addEventListener("click", () => {
+    const prev = (currentIndex - 1 + slideCount) % slideCount;
+    goToSlide(prev);
+  });
 
-function goToBestSlide(index) {
-  bestSlider.style.transform = `translateX(-${index * 100}%)`;
-  bestCurrentIndex = index;
+  nextBtn.addEventListener("click", () => {
+    const next = (currentIndex + 1) % slideCount;
+    goToSlide(next);
+  });
+
+  if (dots.length) {
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const i = parseInt(dot.dataset.index, 10);
+        goToSlide(i);
+      });
+    });
+  }
+
+  // 슬라이더가 있을 때만 자동 슬라이드
+  setInterval(() => {
+    const next = (currentIndex + 1) % slideCount;
+    goToSlide(next);
+  }, 4000);
 }
 
-document.querySelector(".best-prev").addEventListener("click", () => {
-  const prevIndex = (bestCurrentIndex - 1 + bestTotalSlides) % bestTotalSlides;
-  goToBestSlide(prevIndex);
-});
+// ----- BEST 메뉴 슬라이더 -----
+const bestSlider = document.querySelector(".best-slider");
+const bestPrev = document.querySelector(".best-prev");
+const bestNext = document.querySelector(".best-next");
+const bestCards = document.querySelectorAll(".best-card");
 
-document.querySelector(".best-next").addEventListener("click", () => {
-  const nextIndex = (bestCurrentIndex + 1) % bestTotalSlides;
-  goToBestSlide(nextIndex);
-});
+if (bestSlider && bestPrev && bestNext && bestCards.length) {
+  let bestCurrentIndex = 0;
+  const bestTotal = Math.ceil(bestCards.length / 2);
+  const goBest = (i) => {
+    bestSlider.style.transform = `translateX(-${i * 100}%)`;
+    bestCurrentIndex = i;
+  };
+  bestPrev.addEventListener("click", () => {
+    goBest((bestCurrentIndex - 1 + bestTotal) % bestTotal);
+  });
+  bestNext.addEventListener("click", () => {
+    goBest((bestCurrentIndex + 1) % bestTotal);
+  });
+}
+
+// ----- 스크롤 네비 색상 -----
+const navEl = document.querySelector("nav");
+if (navEl) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) navEl.classList.add("scrolled");
+    else navEl.classList.remove("scrolled");
+  });
+}
+
+// ----- 햄버거 토글 -----
+(function () {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  function init() {
+    const toggle = document.getElementById("menuToggle");
+    const wrapper = document.getElementById("menuWrapper");
+    if (!toggle || !wrapper) return;
+
+    toggle.addEventListener("click", () => {
+      wrapper.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target) && !toggle.contains(e.target)) {
+        wrapper.classList.remove("active");
+      }
+    });
+  }
+})();
