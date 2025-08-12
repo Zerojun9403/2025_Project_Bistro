@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+
 body {
   padding-top: var(--nav-height);
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* 히어로 영역: 이미지가 가로 100% + 세로는 화면의 60~80% 정도 */
@@ -23,12 +26,12 @@ body {
   top: 50%; /* 세로 중앙 */
   left: 50%; /* 가로 중앙 */
   transform: translate(-50%, -50%);
+  margin-top: 3%;
   color: white;
   font-size: clamp(40px, 6vw, 100px); /* 반응형 폰트 크기 */
-  font-weight: 800;
+  font-weight: 100;
   letter-spacing: 8px;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* 가독성 향상 */
-  font-family: Helvetica, Arial, sans-serif;
 }
 .store-info-title {
   text-align: center;
@@ -774,6 +777,427 @@ body.modal-open {
   font-size: 1.05rem;
 }
 
+/* 로그인 페이지 영역 */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px 10px 0;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* ===== 로그인 카드 스타일 보강 ===== */
+.auth-wrap {
+  max-width: 920px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
+.auth-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  padding: 26px 26px 30px;
+}
+.auth-title {
+  margin: 0 0 14px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #0f4c81;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+.auth-sub {
+  margin: 0 0 18px;
+  color: #69707a;
+}
+.auth-form .form-row {
+  position: relative;
+  margin: 12px 0 16px;
+}
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 14px 44px 14px 44px; /* 아이콘 여백 */
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+.auth-form input:focus {
+  border-color: #8bb8ff;
+  box-shadow: 0 0 0 4px rgba(139, 184, 255, 0.15);
+}
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #9aa1a8;
+  pointer-events: none;
+}
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #0f4c81;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+.auth-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.06s ease, background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: #0f4c81;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #093557;
+}
+.btn-outline {
+  background: #fff;
+  border-color: #d7dbe2;
+  color: #0f4c81;
+}
+.btn-outline:hover {
+  border-color: #0f4c81;
+}
+.helper {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #69707a;
+}
+.result {
+  margin-top: 14px;
+  min-height: 22px;
+}
+.result .ok {
+  color: #1e8f54;
+  font-weight: 800;
+}
+.result .err {
+  color: #b23a57;
+  font-weight: 800;
+}
+.welcom-text {
+  color: #7a7f86;
+  font-size: 0.95rem;
+  margin-top: 18px;
+}
+
+/* 우측 패널: 가이드/장점 */
+.auth-side {
+  background: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth-side h3 {
+  margin: 0;
+  color: #5c5c5c;
+  font-size: 1.2rem;
+}
+.auth-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #5c5c5c;
+  line-height: 1.7;
+}
+
+/* ===== 회원가입 모달 ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.modal.is-open {
+  display: flex;
+}
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 92vw);
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 18px 22px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+.modal__title {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #0f4c81;
+}
+.modal .form-row {
+  margin-top: 12px;
+}
+.modal .form-row input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 12px 12px;
+}
+.modal__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.06);
+}
+.modal__close:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 960px) {
+  .auth-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+/*voc 영역 */
+/* =====================
+   VOC page (scoped)
+   ===================== */
+.hero--voc .hero__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+  gap: 10px;
+  color: #f7f5f2;
+  text-align: center;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+.hero--voc .hero__eyebrow {
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  font-size: clamp(12px, 1.6vw, 16px);
+  opacity: 0.95;
+}
+.hero--voc .hero__title {
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 72px);
+  letter-spacing: 0.04em;
+}
+.hero--voc .hero__subtitle {
+  font-size: clamp(14px, 2.4vw, 18px);
+  opacity: 0.95;
+}
+
+/* Intro */
+.voc-header {
+  text-align: center;
+  background: linear-gradient(135deg, #0f4c81, #173b5e);
+  color: white;
+  padding: 36px 16px;
+}
+.voc-header__title {
+  margin: 0 0 6px;
+  font-size: clamp(20px, 3.2vw, 30px);
+  font-weight: 900;
+}
+.voc-header__desc {
+  margin: 0 auto;
+  max-width: 880px;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* Form */
+.voc-main {
+  width: 100%;
+  max-width: 720px;
+  margin: 28px auto 64px;
+  padding: 0 16px;
+}
+.voc-form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 22px 22px 26px;
+}
+.voc-form__row {
+  margin-top: 14px;
+}
+.voc-form__row label {
+  display: inline-block;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 8px;
+}
+.voc-form__row input,
+.voc-form__row textarea,
+.voc-select,
+.voc-form select {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+.voc-form__row textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.voc-form__row input:focus,
+.voc-form__row textarea:focus,
+.voc-form select:focus {
+  border-color: #8bb8ff;
+  box-shadow: 0 0 0 4px rgba(139, 184, 255, 0.15);
+}
+.req {
+  color: #dd4124;
+}
+
+.field-hint {
+  margin: 6px 2px 0;
+  font-size: 0.9rem;
+  color: #70757b;
+}
+
+.voc-form__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Alerts */
+.voc-result {
+  margin-top: 12px;
+  min-height: 24px;
+}
+.alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+.alert.ok {
+  background: #e9f9ef;
+  color: #1e8f54;
+  border: 1px solid #c8efd7;
+}
+.alert.err {
+  background: #ffe6ec;
+  color: #b23a57;
+  border: 1px solid #ffc2cf;
+}
+.alert.info {
+  background: #eef5ff;
+  color: #0f4c81;
+  border: 1px solid #dbe2ff;
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+  .voc-form__actions {
+    grid-template-columns: 1fr;
+  }
+}
 /* 반응형 부분 건드리지 말것 */
 @media (max-width: 480px) {
   .zone-title {
