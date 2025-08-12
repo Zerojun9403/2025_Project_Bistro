@@ -362,6 +362,14 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 0 0 100%; /* 항상 한 장씩 표시 */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.best-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .best-card:hover {

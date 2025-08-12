@@ -44,6 +44,7 @@ if (slides && prevBtn && nextBtn) {
 }
 
 // ----- BEST 메뉴 슬라이더 -----
+// BEST 메뉴 슬라이더
 const bestSlider = document.querySelector(".best-slider");
 const bestPrev = document.querySelector(".best-prev");
 const bestNext = document.querySelector(".best-next");
@@ -51,19 +52,30 @@ const bestCards = document.querySelectorAll(".best-card");
 
 if (bestSlider && bestPrev && bestNext && bestCards.length) {
   let bestCurrentIndex = 0;
-  const bestTotal = Math.ceil(bestCards.length / 2);
-  const goBest = (i) => {
-    bestSlider.style.transform = `translateX(-${i * 100}%)`;
-    bestCurrentIndex = i;
-  };
-  bestPrev.addEventListener("click", () => {
-    goBest((bestCurrentIndex - 1 + bestTotal) % bestTotal);
-  });
-  bestNext.addEventListener("click", () => {
-    goBest((bestCurrentIndex + 1) % bestTotal);
-  });
-}
+  const bestTotal = bestCards.length; // 총 카드 개수 (4)
 
+  function goBest(index) {
+    // index가 0~3 사이를 순환
+    if (index < 0) index = bestTotal - 1;
+    if (index >= bestTotal) index = 0;
+
+    bestSlider.style.transform = `translateX(-${index * 100}%)`;
+    bestCurrentIndex = index;
+  }
+
+  bestPrev.addEventListener("click", () => {
+    goBest(bestCurrentIndex - 1);
+  });
+
+  bestNext.addEventListener("click", () => {
+    goBest(bestCurrentIndex + 1);
+  });
+
+  // 자동 슬라이드 (3초마다)
+  setInterval(() => {
+    goBest(bestCurrentIndex + 1);
+  }, 3000);
+}
 // ----- 스크롤 네비 색상 -----
 const navEl = document.querySelector("nav");
 if (navEl) {
