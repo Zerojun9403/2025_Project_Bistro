@@ -69,7 +69,7 @@ $(function () {
         true
       );
       setTimeout(() => {
-        location.href = "index.html";
+        location.href = "/index.html";
       }, 600);
     } else {
       showLoginMsg("아이디 또는 비밀번호가 올바르지 않습니다.", false);
