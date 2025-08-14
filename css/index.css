@@ -16,6 +16,7 @@ nav {
   padding: 15px 0;
   position: fixed; /* 상단 고정 */
   width: 100%;
+  height: auto;
   top: 0;
   left: 0;
   z-index: 999;
@@ -617,7 +618,7 @@ button {
   .navbar-menu {
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 50%;
   }
   .navbar-right {
     flex-direction: column;
