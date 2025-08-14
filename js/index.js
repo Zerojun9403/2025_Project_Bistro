@@ -143,3 +143,28 @@ const nextBtn = document.getElementById("next");
     });
   }
 })();
+
+// ===== 로그인 상태에 따라 메뉴 전환 =====
+(function initLoginStatus() {
+  const navLogin = document.getElementById("navLogin");
+  if (!navLogin) return;
+
+  const currentUser = sessionStorage.getItem("currentUser");
+
+  if (currentUser) {
+    // 로그인 상태
+    navLogin.textContent = "로그아웃";
+    navLogin.href = "#";
+    navLogin.addEventListener("click", function (e) {
+      e.preventDefault();
+      sessionStorage.removeItem("currentUser");
+      alert("로그아웃 되었습니다.");
+      // 로그인 페이지로 이동
+      location.href = "index.html";
+    });
+  } else {
+    // 로그아웃 상태
+    navLogin.textContent = "로그인";
+    navLogin.href = "login.html";
+  }
+})();
