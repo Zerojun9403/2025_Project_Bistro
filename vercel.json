@@ -1,3 +1,0 @@
-{
-  "rewrites": [{ "source": "/html/:path*", "destination": "/html/:path*" }]
-}
