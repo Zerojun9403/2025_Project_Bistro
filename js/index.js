@@ -160,11 +160,11 @@ const nextBtn = document.getElementById("next");
       sessionStorage.removeItem("currentUser");
       alert("로그아웃 되었습니다.");
       // 로그인 페이지로 이동
-      location.href = "index.html";
+      location.href = "html/index.html";
     });
   } else {
     // 로그아웃 상태
     navLogin.textContent = "로그인";
-    navLogin.href = "login.html";
+    navLogin.href = "html/login.html";
   }
 })();
