@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+
+body {
+  padding-top: var(--nav-height);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 히어로 영역: 이미지가 가로 100% + 세로는 화면의 60~80% 정도 */
+.hero {
+  margin: 0; /* figure 기본 여백 제거 */
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 70vh, 900px); /* 반응형 높이 */
+  overflow: hidden; /* 이미지 넘침 방지 */
+}
+
+/* 이미지 꽉 채우기 (좌우세로 모두) */
+.hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 비율 유지하며 꽉 채우기 */
+  display: block;
+}
+.hero-brand-text {
+  position: absolute;
+  top: 50%; /* 세로 중앙 */
+  left: 50%; /* 가로 중앙 */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: clamp(40px, 6vw, 100px); /* 반응형 폰트 크기 */
+  margin-top: 3%;
+  font-weight: 500;
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* 가독성 향상 */
+}
+
+/* 캡션: 이미지 '하단'에 노출 (요구사항대로 이미지 아래쪽) */
+.hero-caption {
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: center;
+}
+
+.company-intro {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+.company-intro h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.company-intro p {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* ===== About Split (hero 하단 섹션) ===== */
+:root {
+  --about-gap: 36px;
+}
+
+.about-split {
+  max-width: 1200px;
+  margin: 48px auto 72px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* 좌측 더 넓게 */
+  gap: var(--about-gap);
+  align-items: stretch;
+  font-family: Helvetica, Arial, "Noto Sans KR", sans-serif;
+}
+
+/* Left photo */
+.about-split__photo {
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.about-split__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4 / 3;
+  /* 높이 조금 더 키우기 */
+  min-height: 600px; /* 기존보다 크게 */
+}
+/* Right panel (white card) */
+.about-split__panel {
+  background: linear-gradient(#ffffff, #f6f6f6);
+  border-radius: 24px;
+  padding: 56px 40px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo text (이미지 로고로 교체 가능) */
+.about-split__panel img {
+  max-width: 300px; /* 원하는 최대 가로 크기 */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 20px; /* 가운데 정렬 + 아래 여백 */
+  display: block;
+}
+.about-split__logo .top {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 36px);
+}
+.about-split__logo .brand {
+  display: block;
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: 1px;
+}
+
+/* Title & description */
+.about-split__title {
+  margin: 8px 0 18px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+.about-split__desc {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Actions */
+.about-split__actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.icon-btn {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #111;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.icon-btn:hover {
+  transform: translateY(-2px);
+  background: #e8e8e8;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+  .about-split__panel {
+    padding: 40px 24px;
+  }
+  .about-split__photo img {
+    aspect-ratio: 16 / 10;
+  }
+}

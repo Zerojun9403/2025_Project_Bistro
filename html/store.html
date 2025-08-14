@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STORE</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="icon" type="image/png" href="../image/icon.png" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/store.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <!-- logo -->
+        <div class="navbar-logo">
+          <a href="../index.html">
+            <img src="../image/logo_le.png" alt="STORE Logo" />
+          </a>
+        </div>
+
+        <!-- 햄버거 버튼 -->
+        <div class="menu-toggle" id="menuToggle">☰</div>
+
+        <!-- 전체 매뉴 래퍼 -->
+        <div class="menu-wrapper" id="menuWrapper">
+          <div class="navbar-menu">
+            <div class="dropdown">
+              <a>BRAND</a>
+              <div class="dropdown-content">
+                <a href="../html/company.html">브랜드 소개</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a>MENU</a>
+              <div class="dropdown-content">
+                <a href="../html/menu_Steak.html">스테이크</a>
+                <a href="../html/menu-pasta_pizza.html">파스타&피자</a>
+                <a href="../html/menu-salad.html">샐러드</a>
+                <a href="../html/menu-dessert.html">디저트</a>
+              </div>
+            </div>
+            <div class="dropdown"><a href="../html/event.html">EVENT</a></div>
+            <div class="dropdown"><a href="../html/store.html">STORE</a></div>
+            <div class="dropdown-dry">
+              <a href="../html/deliver.html" style="color: lightcoral"
+                >DELIVERY</a
+              >
+            </div>
+            <div class="navbar-right">
+              <a href="../html/voc.html">고객의 소리</a>
+              <a href="../html/hr.html">채용</a>
+              <a href="../html/login.html">로그인</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <figure class="hero">
+      <img src="../image/bg_brand_main.png" alt="브랜드 이미지" />
+      <div class="hero-brand-text">STORE</div>
+      <!-- 추가 -->
+      <figcaption class="hero-caption"></figcaption>
+    </figure>
+
+    <h2 class="store-info-title">INFORMATION</h2>
+
+    <!-- 지도+안내 영역 -->
+    <section class="store-wrap">
+      <!-- 예약 달력 영역 -->
+
+      <!-- 지도 영역 -->
+      <div class="map-col">
+        <div
+          class="reservation-calendar"
+          style="margin-bottom: 15px; text-align: center"
+        >
+          <h3 class="titleRe">Reservation</h3>
+          <div id="calendar"></div>
+
+          <!-- 선택 날짜 표시/메시지 -->
+          <div id="reservationMessage" class="reservationMessage"></div>
+
+          <!-- 예약 버튼 -->
+          <button id="reserveBtn">예약하기</button>
+          <button id="cancelBtn">예약취소</button>
+        </div>
+        <!-- (기존) 카카오 roughmap 컨테이너 -->
+        <h3 class="titleRe">MAP</h3>
+        <div
+          id="daumRoughmapContainer1754873570012"
+          class="root_daum_roughmap root_daum_roughmap_landing"
+        ></div>
+
+        <!-- (기존) roughmap 로더 -->
+        <script
+          charset="UTF-8"
+          class="daum_roughmap_loader_script"
+          src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"
+        ></script>
+      </div>
+
+      <!-- 안내(우측 컬럼) -->
+      <aside class="info-col">
+        <div class="adress">
+          <h1>매장정보</h1>
+          <h3>영업시간</h3>
+          <p>평일 : AM 11:00 ~ PM 10:00(L/O 09:00)</p>
+          <p>주말 : AM 11:00 ~ PM 11:00(L/O 09:30)</p>
+          <p>BreakTime PM 03:00~05:00(주말은 없음)</p>
+        </div>
+
+        <div class="traffic">
+          <h1>대중교통</h1>
+          <p>지하철 | 7호선 청담역 8번출구 도보 10분</p>
+          <p>버스 | 343,4212 농협앞(압구정역방향)</p>
+          <p>버스 | 4212 차병원 차움(중곡역방향)</p>
+        </div>
+
+        <div class="adressCar">
+          <h1>차량이용시</h1>
+          <p>서울특별시 강남구 도산대로 442</p>
+          <p>청담사거리 290 M</p>
+          <p>주차시간은 최대 2시간 무료</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 푸터 영역 -->
+    <!-- 푸터 영역-->
+    <!-- 푸터 영역-->
+    <footer class="site-footer">
+      <div class="footer-upper">
+        <img src="/image/logo_w.png" alt="로고" class="footer-logo" />
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>MENU</h4>
+            <ul>
+              <li><a href="../html/menu_Steak.html">스테이크</a></li>
+              <li><a href="../html/menu-pasta_pizza.html">파스타&피자</a></li>
+              <li><a href="../html/menu-salad.html">샐러드</a></li>
+              <li><a href="../html/menu-dessert.html">디저트</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>STORE</h4>
+            <ul>
+              <li><a href="../html/store.html">매장찾기</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>EVENT</h4>
+            <ul>
+              <li><a href="../html/event.html">프로모션</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>SERVICE</h4>
+            <ul>
+              <li><a href="../html/voc.html">고객센터</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>INFORMATION</h4>
+            <ul>
+              <li><a href="../html/company.html">브랜드</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-links">
+          <a>개인정보처리방침</a>
+          <a>사이트 이용약관</a>
+          <a>영상정보처리기기 운영방침</a>
+        </div>
+        <div class="footer-info">
+          서울 강남구 도산대로 442 3층 / 대표: 아리야마 사토시 / 사업자등록번호:
+          123-45-67890<br />
+          대표전화: 1661-0000 (평일 09:00~18:00) / 고객센터:
+          help@familydining.co.kr
+        </div>
+        <div class="footer-copy">
+          &copy; 2025 Le Bisto Nomavia Co., Ltd. All rights reserved.
+        </div>
+      </div>
+
+      <button
+        class="top-btn"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        ▲ TOP
+      </button>
+    </footer>
+    <script src="../js/index.js"></script>
+    <script src="../js/store.js"></script>
+  </body>
+</html>

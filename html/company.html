@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회사소개</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/company.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+
+    <link rel="icon" type="image/png" href="../image/icon.png" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <!-- logo -->
+        <div class="navbar-logo">
+          <a href="../index.html">
+            <img src="../image/logo_le.png" alt="STORE Logo" />
+          </a>
+        </div>
+
+        <!-- 햄버거 버튼 -->
+        <div class="menu-toggle" id="menuToggle">☰</div>
+
+        <!-- 전체 매뉴 래퍼 -->
+        <div class="menu-wrapper" id="menuWrapper">
+          <div class="navbar-menu">
+            <div class="dropdown">
+              <a>BRAND</a>
+              <div class="dropdown-content">
+                <a href="../html/company.html">브랜드 소개</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a>MENU</a>
+              <div class="dropdown-content">
+                <a href="../html/menu_Steak.html">스테이크</a>
+                <a href="../html/menu-pasta_pizza.html">파스타&피자</a>
+                <a href="../html/menu-salad.html">샐러드</a>
+                <a href="../html/menu-dessert.html">디저트</a>
+              </div>
+            </div>
+            <div class="dropdown"><a href="../html/event.html">EVENT</a></div>
+            <div class="dropdown"><a href="../html/store.html">STORE</a></div>
+            <div class="dropdown-dry">
+              <a href="../html/deliver.html" style="color: lightcoral"
+                >DELIVERY</a
+              >
+            </div>
+            <div class="navbar-right">
+              <a href="../html/voc.html">고객의 소리</a>
+              <a href="../html/hr.html">채용</a>
+              <a href="../html/login.html">로그인</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <figure class="hero">
+      <img src="../image/건배흑백.jpg" alt="브랜드 이미지" />
+      <div class="hero-brand-text">BRAND</div>
+      <!-- 추가 -->
+      <figcaption class="hero-caption"></figcaption>
+    </figure>
+
+    <!-- Company About (image left + text card right) -->
+    <section class="about-split">
+      <!-- Left: 메뉴/요리 이미지 -->
+      <figure class="about-split__photo">
+        <!-- 이미지 경로를 너희 음식 사진으로 교체 -->
+        <img src="../image/cop.png" alt="Le Bistro Nomavia 대표 메뉴" />
+      </figure>
+
+      <!-- Right: 소개 카드 -->
+      <div class="about-split__panel">
+        <!-- 텍스트 로고(투명 PNG 로고 있으면 <img>로 교체 가능) -->
+        <img src="../image/logo_le.png" />
+
+        <h3 class="about-split__title">르 비스트로 노마비아</h3>
+
+        <p class="about-split__desc">
+          신선한 제철 재료와 정직한 조리로 일상 속 작은 여행을 선사하는<br />
+          <strong>이탈리안 캐주얼 비스트로</strong>입니다.<br />
+          스테이크와 파스타, 셰프 시즌 스페셜, 그리고 가벼운 디저트 페어링으로
+          테이블의 즐거움을 완성합니다.
+        </p>
+        <p class="about-split__desc">
+          편안한 서비스, 따뜻한 온기, 담백한 맛. <br />
+          어디서나 기억에 남는 다이닝을 약속합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 푸터 영역-->
+    <footer class="site-footer">
+      <div class="footer-upper">
+        <img src="/image/logo_w.png" alt="로고" class="footer-logo" />
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>MENU</h4>
+            <ul>
+              <li><a href="../html/menu_Steak.html">스테이크</a></li>
+              <li><a href="../html/menu-pasta_pizza.html">파스타&피자</a></li>
+              <li><a href="../html/menu-salad.html">샐러드</a></li>
+              <li><a href="../html/menu-dessert.html">디저트</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>STORE</h4>
+            <ul>
+              <li><a href="../html/store.html">매장찾기</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>EVENT</h4>
+            <ul>
+              <li><a href="../html/event.html">프로모션</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>SERVICE</h4>
+            <ul>
+              <li><a href="../html/voc.html">고객센터</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>INFORMATION</h4>
+            <ul>
+              <li><a href="../html/company.html">브랜드</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-links">
+          <a>개인정보처리방침</a>
+          <a>사이트 이용약관</a>
+          <a>영상정보처리기기 운영방침</a>
+        </div>
+        <div class="footer-info">
+          서울 강남구 도산대로 442 3층 / 대표: 아리야마 사토시 / 사업자등록번호:
+          123-45-67890<br />
+          대표전화: 1661-0000 (평일 09:00~18:00) / 고객센터:
+          help@familydining.co.kr
+        </div>
+        <div class="footer-copy">
+          &copy; 2025 Le Bisto Nomavia Co., Ltd. All rights reserved.
+        </div>
+      </div>
+
+      <button
+        class="top-btn"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        ▲ TOP
+      </button>
+    </footer>
+
+    <script src="../js/company.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

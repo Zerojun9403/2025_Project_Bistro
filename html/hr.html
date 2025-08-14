@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채용</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/store.css" />
+
+    <link rel="icon" type="image/png" href="../image/icon.png" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <!-- logo -->
+        <div class="navbar-logo">
+          <a href="../index.html">
+            <img src="../image/logo_le.png" alt="STORE Logo" />
+          </a>
+        </div>
+
+        <!-- 햄버거 버튼 -->
+        <div class="menu-toggle" id="menuToggle">☰</div>
+
+        <!-- 전체 매뉴 래퍼 -->
+        <div class="menu-wrapper" id="menuWrapper">
+          <div class="navbar-menu">
+            <div class="dropdown">
+              <a>BRAND</a>
+              <div class="dropdown-content">
+                <a href="../html/company.html">브랜드 소개</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a>MENU</a>
+              <div class="dropdown-content">
+                <a href="../html/menu_Steak.html">스테이크</a>
+                <a href="../html/menu-pasta_pizza.html">파스타&피자</a>
+                <a href="../html/menu-salad.html">샐러드</a>
+                <a href="../html/menu-dessert.html">디저트</a>
+              </div>
+            </div>
+            <div class="dropdown"><a href="../html/event.html">EVENT</a></div>
+            <div class="dropdown"><a href="../html/store.html">STORE</a></div>
+            <div class="dropdown-dry">
+              <a href="../html/deliver.html" style="color: lightcoral"
+                >DELIVERY</a
+              >
+            </div>
+            <div class="navbar-right">
+              <a href="../html/voc.html">고객의 소리</a>
+              <a href="../html/hr.html">채용</a>
+              <a href="../html/login.html">로그인</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 이미지 영역-->
+    <figure class="hero hero--voc">
+      <img src="../image/hr_bg2.jpg" alt="고객의 소리 배경 이미지" />
+      <figcaption
+        class="hero__center"
+        style="
+          font-family: Nanum Myeongjo, serif;
+          font-weight: 100;
+          font-size: 40px;
+          color: #3c3c3c;
+        "
+      >
+        <strong class="hero__eyebrow">Recruitment</strong>
+        <span class="hero__title">인재 채용</span>
+        <span class="hero__subtitle">함께 성장하는 즐거운 회사</span>
+      </figcaption>
+    </figure>
+
+    <!-- 간단 소개 -->
+    <header class="voc-header">
+      <p class="voc-header__desc">
+        저희와 함께 성장할 <strong>정규직</strong>·<strong>아르바이트</strong>
+        인재를 모집합니다.<br />
+        함께 성장하는 즐거운 회사의 많은 지원 부탁 드립니다.
+      </p>
+    </header>
+
+    <!-- 필터(선택형) -->
+    <div class="filter-tabs" role="tablist">
+      <button
+        class="tab active"
+        data-target="all"
+        aria-selected="true"
+        style="color: #6b6b6b"
+      >
+        전체
+      </button>
+      <button class="tab" data-target="fulltime" style="color: #6b6b6b">
+        정규직
+      </button>
+      <button class="tab" data-target="parttime" style="color: #6b6b6b">
+        아르바이트
+      </button>
+    </div>
+
+    <div class="jobs-section-title">
+      <span class="dot"></span>
+      <h2>모집 분야</h2>
+    </div>
+
+    <!-- 두 카드 나란히 (배달 카드 UI 재사용) -->
+    <div class="delivery-cards jobs">
+      <!-- 정규직 카드 -->
+      <section class="delivery-card job-card" data-type="fulltime">
+        <figure class="delivery-card__photo job-photo">
+          <img
+            src="../image/icon_fulltime.png"
+            alt="정규직 아이콘"
+            onerror="this.src='image/logo_le.png';"
+          />
+        </figure>
+        <div class="delivery-card__panel">
+          <span class="badge">상시 채용</span>
+          <h3 class="delivery-card__title_bemin">정규직 채용</h3>
+          <p class="delivery-card__desc">
+            브랜드와 함께 길게 성장할 동료를 찾고 있어요.
+          </p>
+          <ul class="delivery-card__list">
+            <li>모집: 홀 매니저 / 키친 / 마케팅·운영</li>
+            <li>근무: 주 5일(협의), 유급휴가·식대 지원</li>
+            <li>우대: 외식/호텔 경력, 관련 자격 보유</li>
+          </ul>
+          <a href="#" class="delivery-btn fulltime-btn">정규직 공고 보기</a>
+        </div>
+      </section>
+
+      <!-- 아르바이트 카드 -->
+      <section class="delivery-card job-card" data-type="parttime">
+        <figure class="delivery-card__photo job-photo">
+          <img
+            src="../image/icon_parttime.png"
+            alt="아르바이트 아이콘"
+            onerror="this.src='image/logo_le.png';"
+          />
+        </figure>
+        <div class="delivery-card__panel">
+          <span class="badge">주말·평일 선택</span>
+          <h3 class="delivery-card__title_coupang">아르바이트 채용</h3>
+          <p class="delivery-card__desc">
+            유연한 스케줄로 일하고 싶은 분 환영해요.
+          </p>
+          <ul class="delivery-card__list">
+            <li>모집: 홀/서빙 / 바 / 주방 보조</li>
+            <li>근무: 주 2~5일, 4시간~(협의)</li>
+            <li>복지: 식사 제공, 야간수당, 근무평가 인센티브</li>
+          </ul>
+          <a href="#" class="delivery-btn parttime-btn">아르바이트 공고 보기</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- 푸터 영역-->
+    <!-- 푸터 영역-->
+    <footer class="site-footer">
+      <div class="footer-upper">
+        <img src="/image/logo_w.png" alt="로고" class="footer-logo" />
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>MENU</h4>
+            <ul>
+              <li><a href="../html/menu_Steak.html">스테이크</a></li>
+              <li><a href="../html/menu-pasta_pizza.html">파스타&피자</a></li>
+              <li><a href="../html/menu-salad.html">샐러드</a></li>
+              <li><a href="../html/menu-dessert.html">디저트</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>STORE</h4>
+            <ul>
+              <li><a href="../html/store.html">매장찾기</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>EVENT</h4>
+            <ul>
+              <li><a href="../html/event.html">프로모션</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>SERVICE</h4>
+            <ul>
+              <li><a href="../html/voc.html">고객센터</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>INFORMATION</h4>
+            <ul>
+              <li><a href="../html/company.html">브랜드</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-links">
+          <a>개인정보처리방침</a>
+          <a>사이트 이용약관</a>
+          <a>영상정보처리기기 운영방침</a>
+        </div>
+        <div class="footer-info">
+          서울 강남구 도산대로 442 3층 / 대표: 아리야마 사토시 / 사업자등록번호:
+          123-45-67890<br />
+          대표전화: 1661-0000 (평일 09:00~18:00) / 고객센터:
+          help@familydining.co.kr
+        </div>
+        <div class="footer-copy">
+          &copy; 2025 Le Bisto Nomavia Co., Ltd. All rights reserved.
+        </div>
+      </div>
+
+      <button
+        class="top-btn"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        ▲ TOP
+      </button>
+    </footer>
+
+    <script>
+      // 간단한 탭 필터 (전체/정규직/아르바이트)
+      $(function () {
+        $(".filter-tabs .tab").on("click", function () {
+          const target = $(this).data("target");
+          $(".filter-tabs .tab")
+            .removeClass("active")
+            .attr("aria-selected", "false");
+          $(this).addClass("active").attr("aria-selected", "true");
+
+          if (target === "all") {
+            $("[data-type]").show();
+          } else {
+            $("[data-type]").hide();
+            $('[data-type="' + target + '"]').show();
+          }
+        });
+      });
+    </script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
