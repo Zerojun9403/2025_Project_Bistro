@@ -16,7 +16,6 @@ nav {
   padding: 15px 0;
   position: fixed; /* 상단 고정 */
   width: 100%;
-  height: auto;
   top: 0;
   left: 0;
   z-index: 999;
@@ -617,13 +616,14 @@ button {
   }
   .navbar-menu {
     flex-direction: column;
-    gap: 10px;
-    width: 50%;
+    gap: 15px; /* 메뉴 간격 줄임 */
+    font-size: 0.9em; /* 폰트 크기 살짝 줄임 */
   }
+
   .navbar-right {
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
+    font-size: 0.75em;
   }
 
   .top-btn {
@@ -634,7 +634,6 @@ button {
     font-size: 16px;
   }
 }
-
 @media (max-width: 600px) {
   .slider-container {
     height: 48vh;
