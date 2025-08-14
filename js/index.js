@@ -144,7 +144,7 @@ const nextBtn = document.getElementById("next");
   }
 })();
 
-// ===== 로그인 상태에 따라 메뉴 전환 =====
+// ===== 로그인 상태에 따라 메뉴 전환 =====//
 (function initLoginStatus() {
   const navLogin = document.getElementById("navLogin");
   if (!navLogin) return;
