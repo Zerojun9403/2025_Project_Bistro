@@ -165,6 +165,6 @@ const nextBtn = document.getElementById("next");
   } else {
     // 로그아웃 상태
     navLogin.textContent = "로그인";
-    navLogin.href = "html/login.html";
+    navLogin.href = "/";
   }
 })();
