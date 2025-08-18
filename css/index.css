@@ -13,8 +13,8 @@ body {
 nav {
   background-color: #ddd;
   backdrop-filter: blur(50px);
-  padding: 15px 0;
-  position: fixed; /* 상단 고정 */
+  padding: 10px 0;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -35,10 +35,12 @@ nav.scrolled {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  height: auto;
+  min-height: 60px;
 }
 
 .navbar-logo img {
-  height: 200px; /* 필요 시 조정 */
+  height: 150px;
   width: auto;
   margin-top: 0;
   margin-right: auto;
@@ -102,7 +104,7 @@ nav.scrolled {
   width: 100vw;
   height: 90vh;
   overflow: hidden;
-  margin-top: 0;
+  margin-top: 220px;
 }
 
 .slides {
@@ -528,6 +530,7 @@ button {
   width: 100%;
   height: 100svh;
   overflow: hidden;
+  margin-top: 0px;
 }
 
 .fullscreen-video-wrapper iframe {
@@ -535,12 +538,12 @@ button {
   top: 50%;
   left: 50%;
   width: 100svw;
-  height: calc(100svw * 0.5625); /* 16:9 */
+  height: calc(100svw * 0.5625);
   min-height: 100svh;
   min-width: calc(100svh * 1.7778);
   transform: translate(-50%, -50%);
   filter: grayscale(100%);
-  pointer-events: none; /* 배경용이면 유지 */
+  pointer-events: none;
   z-index: 0;
 }
 
@@ -555,6 +558,7 @@ button {
 @media (max-width: 992px) {
   .slider-container {
     height: 60vh;
+    margin-top: 120px;
   }
   .slide img {
     height: 60vh;
@@ -562,9 +566,60 @@ button {
   .best-card img {
     height: 200px;
   }
+  .fullscreen-video-wrapper {
+    margin-top: 120px;
+  }
 }
 
 @media (max-width: 768px) {
+  nav {
+    padding: 0;
+  }
+
+  .nav-container {
+    height: auto;
+    min-height: 50px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .navbar-logo img {
+    height: 100px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    order: 2;
+  }
+
+  .menu-wrapper {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #ddd;
+    padding: 10px 0;
+    order: 3;
+    margin-top: 10px;
+  }
+
+  .menu-wrapper.active {
+    display: flex;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 0.9em;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.75em;
+    margin-top: 15px;
+  }
+
   .navbar-right p {
     display: none;
   }
@@ -595,35 +650,7 @@ button {
 
   .fullscreen-video-wrapper {
     height: 90svh;
-  }
-
-  .nav-container {
-    flex-wrap: wrap;
-  }
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-  .menu-wrapper {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    background: #ddd;
-    padding: 10px 0;
-  }
-  .menu-wrapper.active {
-    display: flex;
-  }
-  .navbar-menu {
-    flex-direction: column;
-    gap: 15px; /* 메뉴 간격 줄임 */
-    font-size: 0.9em; /* 폰트 크기 살짝 줄임 */
-  }
-
-  .navbar-right {
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.75em;
+    margin-top: 120px;
   }
 
   .top-btn {
@@ -633,10 +660,16 @@ button {
     right: 16px;
     font-size: 16px;
   }
+
+  .slider-container {
+    margin-top: 120px;
+  }
 }
+
 @media (max-width: 600px) {
   .slider-container {
     height: 48vh;
+    margin-top: 120px;
   }
   .slide img {
     height: 48vh;
@@ -656,6 +689,9 @@ button {
     width: 100%;
     height: auto;
   }
+  .fullscreen-video-wrapper {
+    margin-top: 120px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -670,5 +706,8 @@ button {
   }
   .footer-lower {
     font-size: 12px;
+  }
+  .fullscreen-video-wrapper {
+    margin-top: 0 !important;
   }
 }
